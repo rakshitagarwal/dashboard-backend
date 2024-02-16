@@ -46,7 +46,7 @@ app.use("/sales", salesRoutes);
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(process.env.MONGO_URL || "mongodb+srv://rakshit:rakshit17@cluster0.qfsdpwi.mongodb.net/dashboard?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -55,11 +55,11 @@ mongoose
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
     /* ONLY ADD DATA ONE TIME */
-    AffiliateStat.insertMany(dataAffiliateStat);
-    OverallStat.insertMany(dataOverallStat);
-    Product.insertMany(dataProduct);
-    ProductStat.insertMany(dataProductStat);
-    Transaction.insertMany(dataTransaction);
-    User.insertMany(dataUser);
+    // AffiliateStat.insertMany(dataAffiliateStat);
+    // OverallStat.insertMany(dataOverallStat);
+    // Product.insertMany(dataProduct);
+    // ProductStat.insertMany(dataProductStat);
+    // Transaction.insertMany(dataTransaction);
+    // User.insertMany(dataUser);
   })
   .catch((error) => console.log(`${error} did not connect`));
